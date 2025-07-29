@@ -1,0 +1,27 @@
+﻿@model MVCFormValidation.Models.Person
+
+
+@*we are going to create a form which post to the result action*@
+<h2>Filll the form</h2>
+<form asp-action="Result" method="post">
+	<div>
+		<label>Name</label>
+		<input asp-for="Name" />
+		<span asp-validation-for="Name" class="text-danger"></span>	
+	</div>
+
+
+	<div>
+		<label>Age</label>
+		<input asp-for="Age" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+
+	<button type="submit">Submit</button>
+</form>
+
+@*dor instant validation below part is included*@
+@section scripts{
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
